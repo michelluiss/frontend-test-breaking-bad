@@ -1,8 +1,62 @@
-.header {
-    .logo {
-        img{
-            width: 250px;
-            margin-top: gr(20);
+.component-header {
+    max-width: gr(1440);
+    margin: 0 auto;
+    .header {
+        display: flex;
+        align-items: center;
+        .logo {
+            img{
+                width: gr(200);
+                margin-top: gr(20);
+            }
+        }
+        .menu {
+            margin-left: gr(100);
+            .nav {
+                display: flex;
+                list-style: none;
+                .item-nav {
+                    margin: 0 20px;
+                    a {
+                        font-size: gr(16);
+                        color:#b7b7b7;
+                        font-family: 'Open Sans', sans-serif;
+                        transition: all linear 0.3s;
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+                    &.active {
+                        a {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        .search {
+            max-width: 30%;
+            width: 100%;
+            margin-left: auto;
+            position: relative;
+            input {
+                width: 100%;
+                background: transparent;
+                border: 0;
+                border-bottom: 1px solid #b7b7b7;
+                font-size: gr(25);
+                padding-bottom: gr(8);
+            }
+            .submit {
+                width: gr(20);
+                height: gr(20);
+                border: 0;
+                background: url('./assets/img/busca.png') no-repeat;
+                background-size: contain;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
         }
     }
 }
