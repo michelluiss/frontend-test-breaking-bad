@@ -1,0 +1,68 @@
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+/* exemplo 
+
+input,  
+textarea {  
+    @include input-placeholder {
+        color: #000;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+
+*/
+
+
+@function z($name) {
+    @if index($z-indexes, $name) {
+        @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+    } @else {
+        @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+        @return null;
+    }
+}
+$z-indexes: (
+    "menu-mobile",
+    "menu",
+    "submenu",
+    "filtro-hover-canais"
+);
+
+//z-index: z('site-header');
+
+@mixin vertical-align($position: relative) {
+    position: $position;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@function get-value($n) {
+    @return $n;
+}
+
+@mixin font-size($font-size) {
+
+    $base-px-size: $font-base;
+
+    font-size: $font-size;
+    font-size: (get-value($font-size) / $base-px-size) + rem;
+}
+
+@function getrem($n) {
+    $base-px-size: $font-base;
+
+    @return (get-value($n) / $base-px-size) + rem;
+}
+
+@function gr($n) {
+    @return getrem($n);
+}

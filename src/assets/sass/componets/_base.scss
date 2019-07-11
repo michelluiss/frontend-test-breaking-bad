@@ -1,0 +1,37 @@
+html,body {
+    font-size: $font-base + px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: 'Ubuntu-Regular';
+    min-height: 100vh;
+    position: relative;
+    @media (min-width: 992px) {
+        font-size: 29px;
+    }
+    @media (max-width: 991.98px) {
+        font-size: 28px;
+    }
+    @media (max-width: 768px) {
+        font-size: 24.8px;
+    }
+    @media (max-width: 575.98px) {
+        font-size: 22.3px;
+    }
+    @media (max-width: 425px) {
+        font-size: 16.0px;
+    }
+    @media (max-width: 375px) {
+        font-size: 14.5px;
+    }
+    @media (max-width: 320px) {
+        font-size: 12.5px;
+    }
+    #app {
+        height: 100vh;
+        .page-container {
+            height: 100vh;
+            overflow-y: scroll;
+        }
+    }  
+}
