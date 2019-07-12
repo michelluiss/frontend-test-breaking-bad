@@ -1,0 +1,125 @@
+.component-characters {
+    .character {
+        margin-top: gr(50);
+        margin-bottom: gr(40);
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            .page-item {
+                padding: 0 gr(10);
+                a {
+                    color: #fff;
+                }
+                &.active a {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: gr(40);
+            h1 {
+                font-size: gr(30);
+                font-weight: bold;
+                color: #fff;
+            }
+            .box-filters {
+                display: flex;
+                align-items: center;
+                color: #fff;
+                .filters {
+                    display: flex;
+                    margin-left: gr(20);
+                    .filter {
+                        padding: gr(10) gr(25);
+                        margin: 0 gr(8);
+                        width: gr(90);
+                        text-align: center;
+                        border: 1px solid #fff;
+                        font-weight: bold;
+                        cursor: pointer;
+                        transition: all linear 0.3s;
+                        &.alive {
+                            border-color: $alive;
+                            color: $alive;
+                            &:hover {
+                                background: $alive;
+                                color: #fff;
+                            }
+                        }
+                        &.deceased {
+                            border-color: $dead;
+                            color: $dead;
+                            &:hover {
+                                background: $dead;
+                                color: #fff;
+                            }
+                        }
+                        &.all {
+                            background: #fff;
+                            color: #000;
+                            &:hover {
+                                background: transparent;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .content {
+            .box-characters {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                .card-character {
+                    position: relative;
+                    flex: 0 24%;
+                    width: 24%;
+                    height: gr(400);
+                    overflow: hidden;
+                    margin-bottom: gr(20);
+                    img {
+                        object-fit: cover;
+                        width: 100%;
+                    }
+                    .box-info {
+                        color: #fff;
+                        position: absolute;
+                        bottom: 0;
+                        padding: 0px 15px 5px 15px;
+                        box-shadow:         inset 0px -75px 50px -10px rgba(0, 0, 0, 0.9);
+                        width: 100%;
+                        .birthday {
+                            font-size: gr(14);
+                        }
+                        .occupation {
+                            font-size: gr(13);
+                        }
+                    }
+                    .status {
+                        padding: gr(10) gr(30);
+                        position: absolute;
+                        top: gr(20);
+                        right: 0;
+                        font-size: gr(20);
+                        width: gr(80);
+                        text-align: center;
+                        &.alive {
+                            background:$alive;
+                            color: #fff;
+                        }
+                        &.deceased {
+                            background:$dead;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

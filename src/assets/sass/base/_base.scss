@@ -1,7 +1,28 @@
-body {
+html,body {
+    font-size: $font-base + px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
     margin: 0;
-    font-family: 'Ubuntu-Regular';
     background: #000;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    @media (max-width: 991.98px) {
+        font-size: 16px;
+    }
+    @media (max-width: 768px) {
+        font-size: 15px;
+    }
+    @media (max-width: 575.98px) {
+        font-size: 14.5px;
+    }
+    @media (max-width: 375px) {
+        font-size: 14px;
+    }
+    @media (max-width: 320px) {
+        font-size: 13px;
+    }
     h1,h2,h3,h4,h5,h6 {
         margin: 0;
     }
@@ -9,10 +30,17 @@ body {
         text-decoration: none;
     }
     p {
-        margin: 0 0 gr(10) 0;
+        margin: 0;
     }
     img{
         max-width: 100%;
         height: auto;
-    } 
+    }
+    #app {
+    }  
+}
+
+.container {
+    max-width: gr(1440);
+    margin: 0 auto;
 }
