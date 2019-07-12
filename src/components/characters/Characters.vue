@@ -21,40 +21,13 @@
         </div>
         <div class="content">
           <div class="box-characters">
-            <div class="card-character">
-              <img :src="require('../../assets/img/personagens/walter-white-lg.jpg')" alt="logo">
-              <div class="status alive">Vivo</div>
+            <div class="card-character" v-for="( character, index ) in charactersList" :key="index">
+              <img :src="character.img" alt="logo">
+              <div class="status alive" :class="character.status == 'Alive' ? 'alive' : 'deceased'">{{character.status == 'Alive' ? 'Vivo' : 'Morto' }}</div>
               <div class="box-info">
-                <h2 class="name">Walter White</h2>
-                <div class="birthday">09-07-1958</div>
-                <p class="occupation">High School Chemistry Teacher, Meth King Pin</p>
-              </div>
-            </div>
-            <div class="card-character">
-              <img :src="require('../../assets/img/personagens/walter-white-lg.jpg')" alt="logo">
-              <div class="status alive">Vivo</div>
-              <div class="box-info">
-                <h2 class="name">Walter White</h2>
-                <div class="birthday">09-07-1958</div>
-                <p class="occupation">High School Chemistry Teacher, Meth King Pin</p>
-              </div>
-            </div>
-            <div class="card-character">
-              <img :src="require('../../assets/img/personagens/walter-white-lg.jpg')" alt="logo">
-              <div class="status alive">Vivo</div>
-              <div class="box-info">
-                <h2 class="name">Walter White</h2>
-                <div class="birthday">09-07-1958</div>
-                <p class="occupation">High School Chemistry Teacher, Meth King Pin</p>
-              </div>
-            </div>
-            <div class="card-character">
-              <img :src="require('../../assets/img/personagens/walter-white-lg.jpg')" alt="logo">
-              <div class="status alive">Vivo</div>
-              <div class="box-info">
-                <h2 class="name">Walter White</h2>
-                <div class="birthday">09-07-1958</div>
-                <p class="occupation">High School Chemistry Teacher, Meth King Pin</p>
+                <h2 class="name">{{character.name}}</h2>
+                <div class="birthday">{{character.birthday}}</div>
+                <p class="occupation">{{character.occupation[0]}}</p>
               </div>
             </div>
           </div>
@@ -79,8 +52,15 @@ export default {
   },
   data () {
     return{
-      response: {}
+      charactersList: {}
     }
+  },
+  created () {
+    this.$http.get('characters?limit=8&offset=8')
+    .then( (response) => {
+      // console.log(response.body)
+      this.charactersList = response.body
+    })
   }
 }
 </script>
