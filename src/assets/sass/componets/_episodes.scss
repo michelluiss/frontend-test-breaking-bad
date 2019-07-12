@@ -1,0 +1,56 @@
+.component-episodes {
+    .episodes {
+        margin-top: gr(50);
+        margin-bottom: gr(40);
+        margin-left: gr(200);
+        margin-right: gr(100);
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin-top: gr(50);
+            .page-item {
+                padding: 0 gr(10);
+                a {
+                    color: #fff;
+                }
+                &.active a {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .content {
+            .title {
+                margin-bottom: gr(50);
+                h1 {
+                    color: #fff;
+                    text-align: center;
+                }
+            }
+            .box-episodes {
+                color: #b7b7b7;
+                padding: gr(15) 0 gr(30) 0;
+                border-bottom: 1px solid #b7b7b7;
+                .episode {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: gr(18);
+                    .name {
+                        font-size: gr(45);
+                        color: #fff;
+                    }
+                    .col-character {
+                        display: flex;
+                        flex-wrap: wrap;
+                        .name-c {
+                            flex: 0 50%;
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
