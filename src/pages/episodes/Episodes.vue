@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <header-app/>
     <episodes-content/>
   </div>

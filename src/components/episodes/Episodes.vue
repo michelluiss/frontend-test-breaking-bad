@@ -3,7 +3,29 @@
     <div class="container">
       <div class="episodes">
         <div class="content">
-          
+          <div class="title">
+            <h1>Episodios</h1>
+          </div>
+          <div class="box-episodes">
+            <div class="episode">
+              <div class="col-name">
+                <h2 class="name">Ozymandas</h2>
+                <span>Season: 5 - </span>
+                <span>Episodio: 14</span>
+              </div>
+              <div class="col-date">
+                <p>Data de estreia:</p>
+                <p>15/09/2013</p>
+              </div>
+              <div class="col-character">
+                <div class="name-c">Personagens:</div>
+                <div class="name-c">Walter White</div>
+                <div class="name-c">Jesse Pinkman</div>
+                <div class="name-c">Skyler White</div>
+                <div class="name-c">Walter White Jr</div>
+              </div>
+            </div>
+          </div>
         </div>
         <nav>
           <ul class="pagination">
