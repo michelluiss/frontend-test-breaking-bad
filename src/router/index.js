@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import App from '../App.vue'
+// import App from '../App.vue'
+import Index from '../pages/index'
+import CharactersRoutes from '../pages/characters/routes'
+import EpisodesRoutes from '../pages/episodes/routes'
 
 // Application routes
 
@@ -10,10 +13,12 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'characters',
-      component: App,
+      name: 'index',
+      component: Index,
       menu: false
-    }
+    },
+    ...CharactersRoutes,
+    ...EpisodesRoutes,
   ]
 })
 

@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "http-client": "^4.3.1",
+    "store": "^2.0.12",
     "vue": "^2.6.10",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.7"
