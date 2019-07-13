@@ -13,8 +13,9 @@
             margin-top: gr(50);
             .page-item {
                 padding: 0 gr(10);
-                a {
+                .page-link {
                     color: #fff;
+                    cursor: pointer;
                 }
                 &.active a {
                     text-decoration: underline;
@@ -31,19 +32,28 @@
             }
             .box-episodes {
                 color: #b7b7b7;
-                padding: gr(15) 0 gr(30) 0;
-                border-bottom: 1px solid #b7b7b7;
                 .episode {
                     display: flex;
                     justify-content: space-between;
                     font-size: gr(18);
-                    .name {
-                        font-size: gr(45);
-                        color: #fff;
+                    padding: gr(15) 0 gr(30) 0;
+                    border-bottom: 1px solid #b7b7b7;
+                    .col-name {
+                        flex: 0 38%;
+                        width: 38%;
+                        padding-right: 20px;                    
+                        .name {
+                            font-size: gr(45);
+                            color: #fff;
+                        }
+                    }
+                    .col-date {
+                        width: 200px;
                     }
                     .col-character {
                         display: flex;
                         flex-wrap: wrap;
+                        flex: 1;
                         .name-c {
                             flex: 0 50%;
                             width: 50%;

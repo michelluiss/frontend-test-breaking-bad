@@ -10,8 +10,10 @@
             padding: 0;
             .page-item {
                 padding: 0 gr(10);
-                a {
+                color: #fff;
+                .page-link {
                     color: #fff;
+                    cursor: pointer;
                 }
                 &.active a {
                     text-decoration: underline;

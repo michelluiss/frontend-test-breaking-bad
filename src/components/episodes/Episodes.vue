@@ -7,31 +7,28 @@
             <h1>Episodios</h1>
           </div>
           <div class="box-episodes">
-            <div class="episode">
+            <div class="episode" v-for="( character, index ) in episodeList" :key="index">
               <div class="col-name">
-                <h2 class="name">Ozymandas</h2>
-                <span>Season: 5 - </span>
-                <span>Episodio: 14</span>
+                <h2 class="name">{{character.title}}</h2>
+                <span>Season: {{character.season}} - </span>
+                <span>Episodio: {{character.episode}}</span>
               </div>
               <div class="col-date">
                 <p>Data de estreia:</p>
-                <p>15/09/2013</p>
+                <p>{{character.air_date}}</p>
               </div>
               <div class="col-character">
                 <div class="name-c">Personagens:</div>
-                <div class="name-c">Walter White</div>
-                <div class="name-c">Jesse Pinkman</div>
-                <div class="name-c">Skyler White</div>
-                <div class="name-c">Walter White Jr</div>
+                <div class="name-c" v-for="( item, index ) in character.characters" :key="index">{{item}}</div>
               </div>
             </div>
           </div>
         </div>
         <nav>
           <ul class="pagination">
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item active" v-for="( page, idx ) in paginationCount" :key="idx">
+              <span class="page-link">{{page}}</span>
+            </li>
           </ul>
         </nav>
       </div>
@@ -47,14 +44,18 @@ export default {
   },
   data () {
     return{
-      charactersList: {}
+      episodeList: {},
+      allEpisodes: {},
+      paginationCount: 0
     }
   },
   created () {
-    this.$http.get('characters?limit=8&offset=8')
+    this.$http.get('episodes')
     .then( (response) => {
       // console.log(response.body)
-      this.charactersList = response.body
+      this.paginationCount = Math.round( response.body.length / 6) + 1
+      this.allEpisodes = response.body
+      this.episodeList = response.body.slice(0,6)
     })
   }
 }
