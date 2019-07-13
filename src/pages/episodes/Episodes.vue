@@ -10,7 +10,7 @@ import Header from '../../components/Header'
 import Episodes from '../../components/episodes/Episodes'
 
 export default {
-  name: 'app',
+
   components: {
     'header-app': Header,
     'episodes-content': Episodes

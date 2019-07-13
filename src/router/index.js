@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Index from '../pages/index'
 import CharactersRoutes from '../pages/characters/routes'
 import EpisodesRoutes from '../pages/episodes/routes'
+import SuggestionsRoutes from '../pages/suggestions/routes'
 
 // Application routes
 
@@ -19,6 +20,7 @@ const router = new Router({
     },
     ...CharactersRoutes,
     ...EpisodesRoutes,
+    ...SuggestionsRoutes,
   ]
 })
 

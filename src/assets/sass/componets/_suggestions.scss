@@ -1,0 +1,43 @@
+.component-suggestions {
+    .suggestions {
+        margin-top: gr(50);
+        margin-bottom: gr(40);
+        .content {
+            .title {
+                margin-bottom: gr(50);
+                h1 {
+                    color: #fff;
+                    text-align: center;
+                }
+            }
+            .box-suggestions {
+                form {
+                    max-width: gr(600);
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    input, textarea {
+                        border-radius: 5px;
+                        border: 0;
+                        margin-bottom: gr(15);
+                        padding: gr(18);
+                        color: #000;
+                        font-size: gr(18);
+                        &::placeholder {
+                            color: #000;
+                        }
+                    }
+                    button {
+                        background: $alive;
+                        border: 0;
+                        border-radius: 5px;
+                        padding: gr(20) gr(40);
+                        color: #fff;
+                        font-size: gr(16);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

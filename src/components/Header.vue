@@ -8,15 +8,13 @@
         <div class="menu">
           <ul class="nav">
             <li class="item-nav active">
-              <!--a href="">Personagens</a-->
               <router-link :to="{ name: 'characters' }">Personagens</router-link>
             </li>
             <li class="item-nav">
-              <!--a href="">Episodios</a-->
               <router-link :to="{ name: 'episodes' }">Episodios</router-link>
             </li>
             <li class="item-nav">
-              <a href="">Sugestão</a>
+              <router-link :to="{ name: 'suggestions' }">Sugestão</router-link>
             </li>
           </ul>
         </div>
