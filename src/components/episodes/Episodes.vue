@@ -26,7 +26,7 @@
         </div>
         <nav>
           <ul class="pagination">
-            <li class="page-item active" v-for="( page, idx ) in paginationCount" :key="idx">
+            <li class="page-item" :class="page == pageActive ? 'active' : ''" v-for="( page, idx ) in paginationCount" :key="idx" @click="pagination(page)">
               <span class="page-link">{{page}}</span>
             </li>
           </ul>
@@ -46,10 +46,14 @@ export default {
     return{
       episodeList: {},
       allEpisodes: {},
-      paginationCount: 0
+      pageActive: 0,
+      paginationCount: 0,
+      firstEpPage: 0,
+      lastEpPage: 6
     }
   },
   created () {
+    this.pageActive = 1
     this.$http.get('episodes')
     .then( (response) => {
       // console.log(response.body)
@@ -57,6 +61,20 @@ export default {
       this.allEpisodes = response.body
       this.episodeList = response.body.slice(0,6)
     })
+  },
+
+  methods: {
+    pagination ( page ) {
+      if (page > 1) {
+        this.firstEpPage = (page -1 ) * 6
+        this.lastEpPage = page * 6
+      }else {
+        this.firstEpPage = 0
+        this.lastEpPage = 6
+      }
+      this.pageActive = page
+      this.episodeList = this.allEpisodes.slice( this.firstEpPage, this.lastEpPage);
+    }
   }
 }
 </script>
