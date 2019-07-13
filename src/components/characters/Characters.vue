@@ -34,7 +34,7 @@
         </div>
         <nav>
           <ul class="pagination">
-            <li class="page-item active" v-for="( page, idx ) in paginationCount" :key="idx">
+            <li class="page-item" :class="page == pageActive ? 'active' : ''" v-for="( page, idx ) in paginationCount" :key="idx" @click="pagination(page)">
               <span class="page-link">{{page}}</span>
             </li>
           </ul>
@@ -55,47 +55,60 @@ export default {
       charactersList: {},
       charactersFilter: {},
       paginationCount: 0,
+      pageActive: 0,
       aliveActive: false,
       deceasedActive: false,
       allActive: false
     }
   },
   created () {
-    this.$http.get('characters?limit=8')
-    .then( (response) => {
-      this.charactersList = response.body
-      // console.log(response.body)
-    })
+    this.pageActive = 1
     this.$http.get('characters')
     .then( (response) => {
+      this.charactersList = response.body.slice(0,8)
       this.paginationCount = Math.round( response.body.length / 8) + 1
-      // console.log(this.paginationCount)
     })
   },
   methods: {
+
+    selectFilter (status) {
+      if ( status === 'all' ){
+        this.allActive = true
+        this.aliveActive = false
+        this.deceasedActive = false
+      }else if( status == 'Alive' ){
+        this.allActive = false
+        this.aliveActive = true
+        this.deceasedActive = false
+      }else {
+        this.allActive = false
+        this.aliveActive = false
+        this.deceasedActive = true
+      }
+    },
+
     filterCharacter (status) {
       this.$http.get('characters')
       .then( (response) => {
+        this.selectFilter(status)
         if ( status === 'all' ){
           this.charactersList = response.body.slice(0,8)
-          this.allActive = true
-          this.aliveActive = false
-          this.deceasedActive = false
         }else {
-          if( status == 'Alive' ){
-            this.allActive = false
-            this.aliveActive = true
-            this.deceasedActive = false
-          }else {
-            this.allActive = false
-            this.aliveActive = false
-            this.deceasedActive = true
-          }
           this.charactersFilter =  response.body.filter( ( character ) => {
             return character.status.toLowerCase().indexOf(status.toLowerCase()) >= 0; 
           })
           this.charactersList = this.charactersFilter.slice(0,8)
         }
+      })
+    },
+
+    pagination ( page ) {
+      this.pageActive = page
+      let offset = (page - 1 ) * 8
+      this.$http.get('characters?limit=8&offset=' + offset)
+      .then( (response) => {
+        this.charactersList = response.body
+        // console.log(response.body)
       })
     }
   }

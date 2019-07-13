@@ -15,8 +15,9 @@
                     color: #fff;
                     cursor: pointer;
                 }
-                &.active a {
+                &.active .page-link {
                     text-decoration: underline;
+                    color: $alive;
                 }
             }
         }
