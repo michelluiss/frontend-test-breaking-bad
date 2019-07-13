@@ -7,13 +7,13 @@
           <div class="box-filters">
             <span>Filtrar por:</span>
             <div class="filters">
-              <div class="filter alive">
+              <div class="filter alive" :class="aliveActive ? 'active' : ''" @click="filterCharacter('Alive')">
                 <span>Vivo</span>
               </div>
-              <div class="filter deceased">
+              <div class="filter deceased" :class="deceasedActive ? 'active' : ''" @click="filterCharacter('Deceased')">
                 <span>Morto</span>
               </div>
-              <div class="filter all">
+              <div class="filter all" :class="allActive ? 'active' : ''" @click="filterCharacter('all')">
                 <span>Todos</span>
               </div>
             </div>
@@ -53,11 +53,15 @@ export default {
   data () {
     return{
       charactersList: {},
-      paginationCount: 0
+      charactersFilter: {},
+      paginationCount: 0,
+      aliveActive: false,
+      deceasedActive: false,
+      allActive: false
     }
   },
   created () {
-    this.$http.get('characters?limit=8&offset=8')
+    this.$http.get('characters?limit=8')
     .then( (response) => {
       this.charactersList = response.body
       // console.log(response.body)
@@ -67,6 +71,33 @@ export default {
       this.paginationCount = Math.round( response.body.length / 8) + 1
       // console.log(this.paginationCount)
     })
+  },
+  methods: {
+    filterCharacter (status) {
+      this.$http.get('characters')
+      .then( (response) => {
+        if ( status === 'all' ){
+          this.charactersList = response.body.slice(0,8)
+          this.allActive = true
+          this.aliveActive = false
+          this.deceasedActive = false
+        }else {
+          if( status == 'Alive' ){
+            this.allActive = false
+            this.aliveActive = true
+            this.deceasedActive = false
+          }else {
+            this.allActive = false
+            this.aliveActive = false
+            this.deceasedActive = true
+          }
+          this.charactersFilter =  response.body.filter( ( character ) => {
+            return character.status.toLowerCase().indexOf(status.toLowerCase()) >= 0; 
+          })
+          this.charactersList = this.charactersFilter.slice(0,8)
+        }
+      })
+    }
   }
 }
 </script>

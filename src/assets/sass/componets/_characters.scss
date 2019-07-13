@@ -52,6 +52,10 @@
                                 background: $alive;
                                 color: #fff;
                             }
+                            &.active {
+                                background: $alive;
+                                color: #fff;
+                            }
                         }
                         &.deceased {
                             border-color: $dead;
@@ -60,13 +64,20 @@
                                 background: $dead;
                                 color: #fff;
                             }
+                            &.active {
+                                background: $dead;
+                                color: #fff;
+                            }
                         }
                         &.all {
-                            background: #fff;
-                            color: #000;
+                            color: #fff;
                             &:hover {
                                 background: transparent;
                                 color: #fff;
+                            }
+                            &.active {
+                                background: #fff;
+                                color: #000
                             }
                         }
                     }
