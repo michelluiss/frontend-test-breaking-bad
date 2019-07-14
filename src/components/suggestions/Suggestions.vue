@@ -10,6 +10,9 @@
             <form action="" method="post">
               <input type="text" name="author" v-model="author" id="" placeholder="Seu nome">
               <textarea name="message" v-model="message" id="" cols="30" rows="10" placeholder="Mensagem"></textarea>
+              <div class="text">
+                <p>{{replyMessage}}</p>
+              </div>
               <div class="button">
                 <button type="submit" @click="sendMessage()">Enviar sugestão</button>
               </div>
@@ -30,7 +33,8 @@ export default {
   data () {
     return{
       author: '',
-      message: ''
+      message: '',
+      replyMessage: ''
     }
   },
   created () {
@@ -43,7 +47,8 @@ export default {
       let message = { message: this.message }
       this.$http.post('https://frontendtestesamba.free.beeceptor.com/breaking-bad/suggestions', message, author)
       .then( (response) => {
-        console.log(response)
+        this.replyMessage = response.body
+        // console.log(response)
       })
     }
   }

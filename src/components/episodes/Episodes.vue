@@ -54,7 +54,7 @@ export default {
   },
   created () {
     this.pageActive = 1
-    this.$http.get('episodes')
+    this.$http.get('https://www.breakingbadapi.com/api/episodes')
     .then( (response) => {
       // console.log(response.body)
       this.paginationCount = Math.round( response.body.length / 6) + 1

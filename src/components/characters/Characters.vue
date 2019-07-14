@@ -63,7 +63,7 @@ export default {
   },
   created () {
     this.pageActive = 1
-    this.$http.get('characters')
+    this.$http.get('https://www.breakingbadapi.com/api/characters')
     .then( (response) => {
       this.charactersList = response.body.slice(0,8)
       this.paginationCount = Math.round( response.body.length / 8) + 1
@@ -88,7 +88,7 @@ export default {
     },
 
     filterCharacter (status) {
-      this.$http.get('characters')
+      this.$http.get('https://www.breakingbadapi.com/api/characters')
       .then( (response) => {
         this.selectFilter(status)
         if ( status === 'all' ){
@@ -105,7 +105,7 @@ export default {
     pagination ( page ) {
       this.pageActive = page
       let offset = (page - 1 ) * 8
-      this.$http.get('characters?limit=8&offset=' + offset)
+      this.$http.get('https://www.breakingbadapi.com/api/characters?limit=8&offset=' + offset)
       .then( (response) => {
         this.charactersList = response.body
         // console.log(response.body)

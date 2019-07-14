@@ -4,6 +4,14 @@
         margin-bottom: gr(40);
         margin-left: gr(200);
         margin-right: gr(100);
+        @media (max-width: 1366px) {
+            margin-left: gr(80);
+            margin-right: gr(80);
+        }
+        @media (max-width: 992px) {
+            margin-left: gr(40);
+            margin-right: gr(40);
+        }
         .pagination {
             display: flex;
             justify-content: center;
@@ -39,17 +47,34 @@
                     font-size: gr(18);
                     padding: gr(15) 0 gr(30) 0;
                     border-bottom: 1px solid #b7b7b7;
+                    @media (max-width: 680px) {
+                        flex-wrap: wrap;
+                    }
                     .col-name {
                         flex: 0 38%;
                         width: 38%;
-                        padding-right: 20px;                    
+                        padding-right: 20px;
+                        @media (max-width: 680px) {
+                            flex: 0 100%;
+                            width: 100%;
+                            margin-bottom: gr(20);
+                        }             
                         .name {
                             font-size: gr(45);
                             color: #fff;
+                            @media (max-width: 992px) {
+                                font-size: gr(37);
+                            }
+                            @media (max-width: 768px) {
+                                font-size: gr(30);
+                            }
                         }
                     }
                     .col-date {
                         width: 200px;
+                        @media (max-width: 575px) {
+                            margin-bottom: gr(20);
+                        } 
                     }
                     .col-character {
                         display: flex;
@@ -58,6 +83,18 @@
                         .name-c {
                             flex: 0 50%;
                             width: 50%;
+                            @media (max-width: 992px) {
+                                flex: 0 100%;
+                                width: 100%;
+                            }
+                            @media (max-width: 680px) {
+                                flex: 0 50%;
+                                width: 50%;
+                            } 
+                            @media (max-width: 575px) {
+                                flex: 0 100%;
+                                width: 100%;
+                            } 
                         }
                     }
                 }

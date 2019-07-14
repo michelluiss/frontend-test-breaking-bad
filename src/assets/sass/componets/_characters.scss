@@ -25,18 +25,35 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: gr(40);
+            @media (max-width: 768px) {
+                flex-wrap: wrap;
+            }
             h1 {
                 font-size: gr(30);
                 font-weight: bold;
                 color: #fff;
+                @media (max-width: 768px) {
+                    margin-right: gr(10);
+                    margin-bottom: gr(20);
+                }
             }
             .box-filters {
                 display: flex;
                 align-items: center;
                 color: #fff;
+                @media (max-width: 575px) {
+                    flex-wrap: wrap;
+                    width: 100%;
+                }
                 .filters {
                     display: flex;
                     margin-left: gr(20);
+                    @media (max-width: 575px) {
+                        flex-wrap: wrap;
+                        margin-top: gr(15);
+                        margin-left: 0;
+                        width: 100%;
+                    }
                     .filter {
                         padding: gr(10) gr(25);
                         margin: 0 gr(8);
@@ -46,6 +63,10 @@
                         font-weight: bold;
                         cursor: pointer;
                         transition: all linear 0.3s;
+                        @media (max-width: 480px) {
+                            width: 100%;
+                            margin-bottom: gr(10);
+                        }
                         &.alive {
                             border-color: $alive;
                             color: $alive;
@@ -89,7 +110,7 @@
             .box-characters {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-between;
+                // justify-content: space-between;
                 .card-character {
                     position: relative;
                     flex: 0 24%;
@@ -97,6 +118,23 @@
                     height: gr(400);
                     overflow: hidden;
                     margin-bottom: gr(20);
+                    margin: 0 5px 20px 5px;
+                    @media (max-width: 992px) {
+                        flex: 0 32%;
+                        width: 32%;
+                        margin: 0 5px 30px 5px;
+                    }
+                    @media (max-width: 768px) {
+                        flex: 0 48%;
+                        width: 48%;
+                        margin: 0 5px 30px 5px;
+                    }
+                    @media (max-width: 520px) {
+                        flex: 0 100%;
+                        width: 100%;
+                        height: gr(480);
+                        margin: 0 7px 30px 7px;
+                    }
                     img {
                         object-fit: cover;
                         width: 100%;

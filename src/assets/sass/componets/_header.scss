@@ -2,7 +2,15 @@
     .header {
         display: flex;
         align-items: center;
+        @media (max-width: 768.98px) {
+            flex-wrap: wrap;
+        }
         .logo {
+            min-width: gr(150);
+            @media (max-width: 768.98px) {
+                width: 100%;
+                text-align: center;
+            }
             img{
                 width: gr(200);
                 margin-top: gr(20);
@@ -10,11 +18,26 @@
         }
         .menu {
             margin-left: gr(100);
+            @media (max-width: 992px) {
+                margin-left: gr(20);
+            }
+            @media (max-width: 425px) {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
             .nav {
                 display: flex;
                 list-style: none;
+                @media (max-width: 768.98px) {
+                    padding: 0;
+                    flex-direction: column;
+                }
                 .item-nav {
                     margin: 0 20px;
+                    @media (max-width: 425px) {
+                        margin-bottom: gr(5);
+                    }
                     a {
                         font-size: gr(16);
                         color:#b7b7b7;
@@ -37,13 +60,28 @@
             width: 100%;
             margin-left: auto;
             position: relative;
+            @media (max-width: 768.98px) {
+                max-width: 50%;
+            }
+            @media (max-width: 425px) {
+                max-width: 100%;
+                width: 100%;
+                margin-top: gr(20);
+            }
             input {
                 width: 100%;
                 background: transparent;
                 border: 0;
                 border-bottom: 1px solid #b7b7b7;
+                color: #fff;
                 font-size: gr(25);
                 padding-bottom: gr(8);
+                @media (max-width: 1280px) {
+                    font-size: gr(20);
+                }
+                @media (max-width: 992px) {
+                    font-size: gr(16);
+                }
             }
             .submit {
                 width: gr(20);
@@ -52,8 +90,12 @@
                 background: url('./assets/img/busca.png') no-repeat;
                 background-size: contain;
                 position: absolute;
-                top: 10px;
-                right: 10px;
+                top: gr(10);
+                right: gr(10);
+                @media (max-width: 425px) {
+                    top: gr(7);
+                    right: gr(7);
+                }
             }
         }
     }

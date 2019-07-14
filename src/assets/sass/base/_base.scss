@@ -9,7 +9,7 @@ html,body {
     font-family: 'Open Sans', sans-serif;
     position: relative;
     @media (max-width: 991.98px) {
-        font-size: 16px;
+        font-size: 15px;
     }
     @media (max-width: 768px) {
         font-size: 15px;
@@ -43,4 +43,5 @@ html,body {
 .container {
     max-width: gr(1440);
     margin: 0 auto;
+    padding: gr(0) gr(15);
 }
