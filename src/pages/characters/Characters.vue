@@ -6,23 +6,23 @@
 </template>
 
 <script>
-import Header from '../../components/Header'
-import Characters from '../../components/characters/Characters'
+import Header from '../../components/Header';
+import Characters from '../../components/characters/Characters';
 
 export default {
   name: 'app',
   components: {
     // 'header-app': Header,
-    'characters-content': Characters
+    'characters-content': Characters,
   },
-  data () {
-    return{
-      search: ''
-    }
+  data() {
+    return {
+      search: '',
+    };
   },
-  created () {
-  }
-}
+  created() {
+  },
+};
 </script>
 
 <style>

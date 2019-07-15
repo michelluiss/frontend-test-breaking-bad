@@ -35,11 +35,11 @@ export default {
   props: ['search'],
   model: {
     prop: 'search',
-    event: 'click'
+    event: 'click',
   },
   components: {
-  }
-}
+  },
+};
 </script>
 
 <style>

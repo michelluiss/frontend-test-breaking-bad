@@ -42,41 +42,41 @@ export default {
   name: 'app',
   components: {
   },
-  data () {
-    return{
+  data() {
+    return {
       episodeList: {},
       allEpisodes: {},
       pageActive: 0,
       paginationCount: 0,
       firstEpPage: 0,
-      lastEpPage: 6
-    }
+      lastEpPage: 6,
+    };
   },
-  created () {
-    this.pageActive = 1
+  created() {
+    this.pageActive = 1;
     this.$http.get('https://www.breakingbadapi.com/api/episodes')
-    .then( (response) => {
+      .then((response) => {
       // console.log(response.body)
-      this.paginationCount = Math.round( response.body.length / 6) + 1
-      this.allEpisodes = response.body
-      this.episodeList = response.body.slice(0,6)
-    })
+        this.paginationCount = Math.round(response.body.length / 6) + 1;
+        this.allEpisodes = response.body;
+        this.episodeList = response.body.slice(0, 6);
+      });
   },
 
   methods: {
-    pagination ( page ) {
+    pagination(page) {
       if (page > 1) {
-        this.firstEpPage = (page -1 ) * 6
-        this.lastEpPage = page * 6
-      }else {
-        this.firstEpPage = 0
-        this.lastEpPage = 6
+        this.firstEpPage = (page - 1) * 6;
+        this.lastEpPage = page * 6;
+      } else {
+        this.firstEpPage = 0;
+        this.lastEpPage = 6;
       }
-      this.pageActive = page
-      this.episodeList = this.allEpisodes.slice( this.firstEpPage, this.lastEpPage);
-    }
-  }
-}
+      this.pageActive = page;
+      this.episodeList = this.allEpisodes.slice(this.firstEpPage, this.lastEpPage);
+    },
+  },
+};
 </script>
 
 <style>

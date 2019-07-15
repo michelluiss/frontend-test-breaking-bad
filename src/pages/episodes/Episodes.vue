@@ -6,16 +6,16 @@
 </template>
 
 <script>
-import Header from '../../components/Header'
-import Episodes from '../../components/episodes/Episodes'
+import Header from '../../components/Header';
+import Episodes from '../../components/episodes/Episodes';
 
 export default {
 
   components: {
     'header-app': Header,
-    'episodes-content': Episodes
-  }
-}
+    'episodes-content': Episodes,
+  },
+};
 </script>
 
 <style lang="scss">

@@ -81,8 +81,8 @@ export default {
 
   components: {
   },
-  data () {
-    return{
+  data() {
+    return {
       charactersList: {},
       charactersFilter: {},
       charactersAll: {},
@@ -91,77 +91,72 @@ export default {
       pageActive: 0,
       aliveActive: false,
       deceasedActive: false,
-      allActive: false
-    }
+      allActive: false,
+    };
   },
 
-  created () {
-    this.pageActive = 1
+  created() {
+    this.pageActive = 1;
     this.$http.get('https://www.breakingbadapi.com/api/characters')
-    .then( (response) => {
-      this.charactersList = response.body.slice(0,8)
-      this.charactersAll = response.body
-      this.paginationCount = Math.round( response.body.length / 8) + 1
-    })
+      .then((response) => {
+        this.charactersList = response.body.slice(0, 8);
+        this.charactersAll = response.body;
+        this.paginationCount = Math.round(response.body.length / 8) + 1;
+      });
   },
 
   computed: {
-    filteredList () {
-      if(this.search){
-        return this.charactersList = this.charactersAll.filter( character => {
-          return character.name.toLowerCase().includes(this.search.toLowerCase())
-        })
-      }else {
-        return this.charactersList
+    filteredList() {
+      if (this.search) {
+        return this.charactersList = this.charactersAll.filter(character => character.name.toLowerCase().includes(this.search.toLowerCase()));
       }
-    }
+      return this.charactersList;
+    },
   },
 
   methods: {
 
-    selectFilter (status) {
-      if ( status === 'all' ){
-        this.allActive = true
-        this.aliveActive = false
-        this.deceasedActive = false
-      }else if( status == 'Alive' ){
-        this.allActive = false
-        this.aliveActive = true
-        this.deceasedActive = false
-      }else {
-        this.allActive = false
-        this.aliveActive = false
-        this.deceasedActive = true
+    selectFilter(status) {
+      if (status === 'all') {
+        this.allActive = true;
+        this.aliveActive = false;
+        this.deceasedActive = false;
+      } else if (status == 'Alive') {
+        this.allActive = false;
+        this.aliveActive = true;
+        this.deceasedActive = false;
+      } else {
+        this.allActive = false;
+        this.aliveActive = false;
+        this.deceasedActive = true;
       }
     },
 
-    filterCharacter (status) {
+    filterCharacter(status) {
       this.$http.get('https://www.breakingbadapi.com/api/characters')
-      .then( (response) => {
-        this.selectFilter(status)
-        if ( status === 'all' ){
-          this.pageActive = 1
-          this.charactersList = response.body.slice(0,8)
-        }else {
-          this.charactersFilter =  response.body.filter( ( character ) => {
-            return character.status.toLowerCase().indexOf(status.toLowerCase()) >= 0; 
-          })
-          this.charactersList = this.charactersFilter
-        }
-      })
+        .then((response) => {
+          this.selectFilter(status);
+          if (status === 'all') {
+            this.pageActive = 1;
+            this.charactersList = response.body.slice(0, 8);
+          } else {
+            this.charactersFilter = response.body.filter(character => character.status.toLowerCase().indexOf(status.toLowerCase()) >= 0);
+            this.charactersList = this.charactersFilter;
+          }
+        });
     },
 
-    pagination ( page ) {
-      this.pageActive = page
-      let offset = (page - 1 ) * 8
-      this.$http.get('https://www.breakingbadapi.com/api/characters?limit=8&offset=' + offset)
-      .then( (response) => {
-        this.charactersList = response.body
+    pagination(page) {
+      this.pageActive = page;
+      const offset = (page - 1) * 8;
+      this.$http.get(`https://www.breakingbadapi.com/api/characters?limit=8&offset=${offset}`)
+        .then((response) => {
+          this.charactersList = response.body;
         // console.log(response.body)
-      })
-    }
-  }
-}
+        });
+    },
+  },
+};
 </script>
 
 <style>

@@ -1,14 +1,14 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 // import App from '../App.vue'
-import Index from '../pages/index'
-import CharactersRoutes from '../pages/characters/routes'
-import EpisodesRoutes from '../pages/episodes/routes'
-import SuggestionsRoutes from '../pages/suggestions/routes'
+import Index from '../pages/index';
+import CharactersRoutes from '../pages/characters/routes';
+import EpisodesRoutes from '../pages/episodes/routes';
+import SuggestionsRoutes from '../pages/suggestions/routes';
 
 // Application routes
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
   routes: [
@@ -16,12 +16,12 @@ const router = new Router({
       path: '/',
       name: 'index',
       component: Index,
-      menu: false
+      menu: false,
     },
     ...CharactersRoutes,
     ...EpisodesRoutes,
     ...SuggestionsRoutes,
-  ]
-})
+  ],
+});
 
-export default router
+export default router;

@@ -30,29 +30,29 @@ export default {
   name: 'app',
   components: {
   },
-  data () {
-    return{
+  data() {
+    return {
       author: '',
       message: '',
-      replyMessage: ''
-    }
+      replyMessage: '',
+    };
   },
-  created () {
+  created() {
   },
 
   methods: {
-    sendMessage () {
+    sendMessage() {
       event.preventDefault();
-      let author = { author: this.author }
-      let message = { message: this.message }
+      const author = { author: this.author };
+      const message = { message: this.message };
       this.$http.post('https://frontendtestesamba.free.beeceptor.com/breaking-bad/suggestions', message, author)
-      .then( (response) => {
-        this.replyMessage = response.body
+        .then((response) => {
+          this.replyMessage = response.body;
         // console.log(response)
-      })
-    }
-  }
-}
+        });
+    },
+  },
+};
 </script>
 
 <style>

@@ -6,13 +6,13 @@
 <script>
 
 export default {
-  created () {
+  created() {
     this.$router.push({
-      name: 'characters'
-    })
-  }
+      name: 'characters',
+    });
+  },
 
-}
+};
 </script>
 
 <style lang="scss">
