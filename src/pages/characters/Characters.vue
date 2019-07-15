@@ -1,7 +1,7 @@
 <template>
   <div>
-    <header-app/>
-    <characters-content/>
+    <!--header-app v-model="search"></header-app-->
+    <characters-content></characters-content>
   </div>
 </template>
 
@@ -12,20 +12,15 @@ import Characters from '../../components/characters/Characters'
 export default {
   name: 'app',
   components: {
-    'header-app': Header,
+    // 'header-app': Header,
     'characters-content': Characters
   },
   data () {
     return{
-      charactersList: {}
+      search: ''
     }
   },
   created () {
-    this.$http.get('characters?limit=8&offset=8')
-    .then( (response) => {
-      // console.log(response.body)
-      this.charactersList = response.body
-    })
   }
 }
 </script>

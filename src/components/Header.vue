@@ -20,7 +20,7 @@
         </div>
         <div class="search">
           <form action="" method="get">
-            <input type="text" name="characters" id="" placeholder="Pesquise os personagens">
+            <input type="text" v-model="search" name="characters" id="" placeholder="Pesquise os personagens">
             <button class="submit" type="submit"></button>
           </form>
         </div>
@@ -32,7 +32,11 @@
 <script>
 
 export default {
-  name: 'app',
+  props: ['search'],
+  model: {
+    prop: 'search',
+    event: 'click'
+  },
   components: {
   }
 }
