@@ -5,7 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "jest --config test/unit/jest.conf.js --updateSnapshot --coverage ",
+    "test:unit-coverage-all": "jest --config test/unit/jest.conf.js --watchAll --coverage || true",
+    "jest": "JEST_JUNIT_OUTPUT=\"./test/unit/junit/result.xml\" jest --config test/unit/jest.conf.js --ci --reporters=default --reporters=jest-junit "
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -18,16 +22,19 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",
-    "@vue/cli-plugin-eslint": "^3.9.2",
     "@vue/cli-service": "^3.9.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^21.0.2",
     "css-loader": "^3.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "jest": "^24.8.0",
+    "jest-serializer-vue": "^0.3.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "vue-jest": "^1.0.2",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.35.3"
   },

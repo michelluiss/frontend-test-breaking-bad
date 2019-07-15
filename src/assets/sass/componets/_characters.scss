@@ -2,6 +2,12 @@
     .character {
         margin-top: gr(50);
         margin-bottom: gr(40);
+        .searching {
+            color: #fff;
+            margin-bottom: gr(25);
+            font-size: gr(23);
+            transition: all linear 0.3s;
+        }
         .pagination {
             display: flex;
             justify-content: center;
@@ -25,6 +31,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: gr(40);
+            transition: all linear 0.3s;
             @media (max-width: 768px) {
                 flex-wrap: wrap;
             }
@@ -94,8 +101,8 @@
                         &.all {
                             color: #fff;
                             &:hover {
-                                background: transparent;
-                                color: #fff;
+                                background: #fff;
+                                color: #000;
                             }
                             &.active {
                                 background: #fff;

@@ -41,7 +41,7 @@ export default {
   },
 
   methods: {
-    sendMessage() {
+    sendMessage() { /**** esta função faz o envio do formulário de sugestões ****/
       event.preventDefault();
       const author = { author: this.author };
       const message = { message: this.message };

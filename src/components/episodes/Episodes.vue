@@ -54,12 +54,12 @@ export default {
   },
   created() {
     this.pageActive = 1;
-    this.$http.get('https://www.breakingbadapi.com/api/episodes')
+    this.$http.get('https://www.breakingbadapi.com/api/episodes') /**** metodo GET para buscar todos os episodios ****/
       .then((response) => {
       // console.log(response.body)
-        this.paginationCount = Math.round(response.body.length / 6) + 1;
-        this.allEpisodes = response.body;
-        this.episodeList = response.body.slice(0, 6);
+        this.paginationCount = Math.round(response.body.length / 6) + 1
+        this.allEpisodes = response.body
+        this.episodeList = response.body.slice(0, 6) /***** retorna um array com os 6 primeiros episodios *****/
       });
   },
 
