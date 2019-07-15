@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Characters from '@/pages/Characters'
+import Characters from '@/components/characters'
 
 describe('Test page character', () => {
   test('Test value variable search', () => {
