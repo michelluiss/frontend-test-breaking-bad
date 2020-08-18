@@ -1,5 +1,8 @@
 # frontend-test-breaking-bad
 
+Link da aplicação:
+https://front-end-teste-breaking-bad.web.app/#/characters
+
 ## Project setup
 ```
 npm install
