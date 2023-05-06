@@ -17,7 +17,7 @@
     "inspector": "^0.5.0",
     "store": "^2.0.12",
     "vue": "^2.6.10",
-    "vue-resource": "^1.5.1",
+    "vue-resource": "^1.5.3",
     "vue-router": "^3.0.7"
   },
   "devDependencies": {
