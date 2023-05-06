@@ -21,8 +21,8 @@
     "vue-router": "^3.0.7"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.9.0",
-    "@vue/cli-service": "^3.9.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^21.0.2",
@@ -34,7 +34,7 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "vue-jest": "^1.4.0",
+    "vue-jest": "^3.0.7",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.35.3"
   },
